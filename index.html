@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Video Player</title>
+  </head>
+  <body>
+    <?php
+      $filename = "example.mp4"; // Replace with the name of your video file
+      $filepath = "videos/".$filename; // Replace with the path to your video file
+
+      if(file_exists($filepath)) {
+        echo '<video width="640" height="360" controls>
+                <source src="'.$filepath.'" type="video/mp4">
+              </video>';
+      } else {
+        echo "The video file does not exist.";
+      }
+    ?>
+
+    <script>
+      var video = document.querySelector('video');
+      video.addEventListener('click', function() {
+        if (video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+    </script>
+  </body>
+</html>
